@@ -22,6 +22,8 @@ const damageTwo = document.getElementById('damageTwo');
 const attackButtonOne = document.getElementById('attackButtonOne')
 const attackButtonTwo = document.getElementById('attackButtonTwo')
 
+const battleDescription = document.getElementById('battle-description');
+
 let currentHealthTwo = healthBarTwo.innerHTML.split(" ")[1];
 attackButtonOne.addEventListener('click', () => {
   const damage = Math.ceil(Math.random() * +damageOne.innerHTML.split(" ")[1]);
@@ -30,10 +32,12 @@ attackButtonOne.addEventListener('click', () => {
     healthBarTwo.innerHTML = `Health: ${currentHealthTwo}`
     attackButtonOne.setAttribute("disabled", "true")
     attackButtonTwo.removeAttribute("disabled", "true")
+    battleDescription.innerHTML = `${damage} damage dealt!!!!`
   } else {
     healthBarTwo.innerHTML = "YOU ARE DEAD!!!!!!!!!!!!!!"
     attackButtonTwo.outerHTML = '<h1>YOU LOSE</h1>';
     attackButtonOne.outerHTML = '<h1>YOU WIN</h1>';
+    battleDescription.innerHTML = `POKEMON DOWN!!!!!`
   }
 })
 
@@ -45,9 +49,11 @@ attackButtonTwo.addEventListener('click', () => {
     healthBarOne.innerHTML = `Health: ${currentHealthOne}`
     attackButtonOne.removeAttribute("disabled", "true")
     attackButtonTwo.setAttribute("disabled", "true")
+    battleDescription.innerHTML = `${damage} damage dealt!!!!`
   } else {
     healthBarOne.innerHTML = "YOU ARE DEAD!!!!!!!!!!!!!!!!!!!"
     attackButtonTwo.outerHTML = '<h1>YOU WIN</h1>';
     attackButtonOne.outerHTML = '<h1>YOU LOSE</h1>';
+    battleDescription.innerHTML = `POKEMON DOWN!!!!!`
   }
 })

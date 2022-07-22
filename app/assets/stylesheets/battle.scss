@@ -4,13 +4,23 @@
 
 .pokemons {
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
+  gap: 10rem;
+}
+
+.pokemon {
+  border: 1px solid rgba(0, 0, 0, 0.507);
+  padding: 2rem;
 }
 
 .battle {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  h1, h2 {
+    margin: 1rem auto;
+    text-decoration: underline;
+  }
 }
 
 .reset-button {
