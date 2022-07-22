@@ -1,0 +1,20 @@
+<h2><a href="/pokemon">All pokemon</a></h2>
+<div class="battle">
+  <h1>Battle!</h1>
+  <h2><%= @pokemon_one.name %> vs <%= @pokemon_two.name %></h2>
+  <div class="pokemons">
+    <div class="pokemon">
+      <h3><%= @pokemon_one.name %></h3>
+      <h4 id="healthBarOne">Health: <%= @pokemon_one.health %></h4>
+      <h4 id="damageOne">Damage: <%= @pokemon_one.damage %></h4>
+      <button id="attackButtonOne">Attack!</button>
+    </div>
+    <div class="pokemon">
+      <h3><%= @pokemon_two.name %></h3>
+      <h4 id="healthBarTwo">Health: <%= @pokemon_two.health %></h4>
+      <h4 id="damageTwo">Damage: <%= @pokemon_two.damage %></h4>
+      <button id="attackButtonTwo">Attack!</button>
+    </div>
+  </div>
+    <button class="reset-button"><%= link_to "Reset", battle_path(@battle) %></button>
+</div>

@@ -1,0 +1,26 @@
+<h1>Pokemon</h1>
+<ul>
+  <% @pokemons.each do |pokemon| %>
+    <li><%= link_to pokemon.name, pokemon_path(pokemon), data: { temp: pokemon } %></li>
+  <% end %>
+</ul>
+
+<h2>Create a new pokemon</h2>
+<%= form_with url: "/pokemon", method: :post do |form| %>
+  <%= form.label :name, "Name" %>
+  <%= form.text_field :name %>
+  <%= form.label :health, "Health" %>
+  <%= form.text_field :health %>
+  <%= form.label :damage, "Damage" %>
+  <%= form.text_field :damage %>
+  <%= form.submit "Submit" %>
+<% end %>
+
+<h2>Create a battle</h2>
+<%= form_with url: "/battle", method: :post do |form| %>
+  <%= form.label :pokemon_one, "Name" %>
+  <%= form.select :pokemon_one, @pokemons.map {|p| [p.name, p.id]} %>
+  <%= form.label :pokemon_two, "Name" %>
+  <%= form.select :pokemon_two, @pokemons.map {|p|[p.name, p.id]} %>
+  <%= form.submit "Submit" %>
+<% end %>
